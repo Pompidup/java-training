@@ -7,8 +7,8 @@ public class MatrixTraining {
      * ie: {{0, 0}, {0, 0}, {0, 0}}
      */
     public int[][] emptyIntMatrix(int lines, int columns) {
-
-        return null;
+        int[][] matrix = new int[lines][columns];
+        return matrix;
     }
 
     /**
@@ -18,8 +18,8 @@ public class MatrixTraining {
      * ie: {{null, null, null}, {null, null, null}}
      */
     public String[][] emptyStringMatrix(int lines, int columns) {
-
-        return null;
+        String[][] matrix = new String[lines][columns];
+        return matrix;
     }
 
     /**
@@ -29,8 +29,8 @@ public class MatrixTraining {
      * @return an int matrix with a, b and c arrays
      */
     public int[][] intMatrix(int[] a, int[] b, int[] c) {
-
-        return null;
+        int[][] matrix = new int[][]{a, b, c};
+        return matrix;
     }
 
     /**
@@ -40,8 +40,17 @@ public class MatrixTraining {
      * @return an int matrix with a, b and c arrays
      */
     public String[][] stringMatrix(String[] a, String[] b, String[] c) {
-
-        return null;
+       /* int[] tmpa = new int[a.length];
+        int[] tmpb = new int[b.length];
+        int[] tmpc = new int[c.length];
+        for (int i = 0; i<a.length; i++){
+            tmpa[i] = Integer.parseInt(a[i]);
+            tmpb[i] = Integer.parseInt(b[i]);
+            tmpc[i] = Integer.parseInt(c[i]);
+        }
+        */
+        String[][] matrix ={a,b,c};
+        return matrix;
     }
 
     /**
@@ -50,7 +59,7 @@ public class MatrixTraining {
      */
     public int height(int[][] matrix) {
 
-        return 0;
+        return matrix.length;
     }
 
     /**
@@ -59,7 +68,7 @@ public class MatrixTraining {
      */
     public int width(int[][] matrix) {
 
-        return 0;
+        return matrix[0].length;
     }
 
     /**
@@ -70,7 +79,7 @@ public class MatrixTraining {
      */
     public int valueAtPosition(int[][] matrix, int line, int column) {
 
-        return 0;
+        return matrix[line][column];
     }
 
     /**
@@ -82,8 +91,8 @@ public class MatrixTraining {
      * ie: {{1, 2, 3}, {4, 5, 6}}
      */
     public int[][] replace(int[][] matrix, int value, int line, int column) {
-
-        return null;
+        matrix[line][column] = value;
+        return matrix;
     }
 
     /**
@@ -91,8 +100,13 @@ public class MatrixTraining {
      * @return sum of matrix values, ie: 21
      */
     public int sum(int[][] matrix) {
-
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                sum += matrix[i][j];
+            }
+        }
+        return sum;
     }
 
     /**
@@ -101,7 +115,13 @@ public class MatrixTraining {
      * @return if matrix contains searched value, ie: true
      */
     public boolean contains(int[][] matrix, int search) {
-
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == search) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -110,8 +130,15 @@ public class MatrixTraining {
      * @return how many even numbers are in matrix, ie: 3
      */
     public int countEvens(int[][] matrix) {
-
-        return 0;
+        int even = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if ((matrix[i][j] % 2) == 0) {
+                    even++;
+                }
+            }
+        }
+        return even;
     }
 
     /**
@@ -120,7 +147,14 @@ public class MatrixTraining {
      * @return the number of character occurrences in matrix, ie: 3
      */
     public int occurrences(char[][] matrix, char search) {
-
-        return 0;
+        int nbChar = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == search) {
+                    nbChar++;
+                }
+            }
+        }
+        return nbChar;
     }
 }
